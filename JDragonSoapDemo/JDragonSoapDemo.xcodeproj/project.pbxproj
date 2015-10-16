@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12F80E811BD0D49300D5BFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E801BD0D49300D5BFA7 /* main.m */; };
+		12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E831BD0D49300D5BFA7 /* AppDelegate.m */; };
+		12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E861BD0D49300D5BFA7 /* ViewController.m */; };
+		12F80E8A1BD0D49300D5BFA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F80E881BD0D49300D5BFA7 /* Main.storyboard */; };
+		12F80E8C1BD0D49300D5BFA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F80E8B1BD0D49300D5BFA7 /* Assets.xcassets */; };
+		12F80E8F1BD0D49300D5BFA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F80E8D1BD0D49300D5BFA7 /* LaunchScreen.storyboard */; };
+		12F80E9A1BD0D49300D5BFA7 /* JDragonSoapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E991BD0D49300D5BFA7 /* JDragonSoapDemoTests.m */; };
+		12F80EA51BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EA41BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m */; };
+		12F80ED31BD0D5F200D5BFA7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EB61BD0D5F200D5BFA7 /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED41BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EB81BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED51BD0D5F200D5BFA7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EBA1BD0D5F200D5BFA7 /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED61BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EBD1BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED71BD0D5F200D5BFA7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EBF1BD0D5F200D5BFA7 /* AFSecurityPolicy.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED81BD0D5F200D5BFA7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EC11BD0D5F200D5BFA7 /* AFURLConnectionOperation.m */; settings = {ASSET_TAGS = (); }; };
+		12F80ED91BD0D5F200D5BFA7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EC31BD0D5F200D5BFA7 /* AFURLRequestSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		12F80EDA1BD0D5F200D5BFA7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EC51BD0D5F200D5BFA7 /* AFURLResponseSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		12F80EDB1BD0D5F200D5BFA7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EC71BD0D5F200D5BFA7 /* AFURLSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		12F80EDC1BD0D5F200D5BFA7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80ECA1BD0D5F200D5BFA7 /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
+		12F80EDD1BD0D5F200D5BFA7 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 12F80ECC1BD0D5F200D5BFA7 /* SVProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
+		12F80EDE1BD0D5F200D5BFA7 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80ECE1BD0D5F200D5BFA7 /* SVProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
+		12F80EDF1BD0D5F200D5BFA7 /* SoapHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12F80E961BD0D49300D5BFA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12F80E741BD0D49300D5BFA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F80E7B1BD0D49300D5BFA7;
+			remoteInfo = JDragonSoapDemo;
+		};
+		12F80EA11BD0D49300D5BFA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12F80E741BD0D49300D5BFA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F80E7B1BD0D49300D5BFA7;
+			remoteInfo = JDragonSoapDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12F80E7C1BD0D49300D5BFA7 /* JDragonSoapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDragonSoapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F80E801BD0D49300D5BFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		12F80E821BD0D49300D5BFA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		12F80E831BD0D49300D5BFA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		12F80E851BD0D49300D5BFA7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		12F80E861BD0D49300D5BFA7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		12F80E891BD0D49300D5BFA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		12F80E8B1BD0D49300D5BFA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12F80E8E1BD0D49300D5BFA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		12F80E901BD0D49300D5BFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F80E951BD0D49300D5BFA7 /* JDragonSoapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDragonSoapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F80E991BD0D49300D5BFA7 /* JDragonSoapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDragonSoapDemoTests.m; sourceTree = "<group>"; };
+		12F80E9B1BD0D49300D5BFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F80EA01BD0D49300D5BFA7 /* JDragonSoapDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDragonSoapDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F80EA41BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDragonSoapDemoUITests.m; sourceTree = "<group>"; };
+		12F80EA61BD0D49300D5BFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F80EB51BD0D5F200D5BFA7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		12F80EB61BD0D5F200D5BFA7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		12F80EB71BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		12F80EB81BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		12F80EB91BD0D5F200D5BFA7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		12F80EBA1BD0D5F200D5BFA7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		12F80EBB1BD0D5F200D5BFA7 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		12F80EBC1BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		12F80EBD1BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		12F80EBE1BD0D5F200D5BFA7 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		12F80EBF1BD0D5F200D5BFA7 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		12F80EC01BD0D5F200D5BFA7 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		12F80EC11BD0D5F200D5BFA7 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		12F80EC21BD0D5F200D5BFA7 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		12F80EC31BD0D5F200D5BFA7 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		12F80EC41BD0D5F200D5BFA7 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		12F80EC51BD0D5F200D5BFA7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		12F80EC61BD0D5F200D5BFA7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		12F80EC71BD0D5F200D5BFA7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		12F80EC91BD0D5F200D5BFA7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		12F80ECA1BD0D5F200D5BFA7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		12F80ECC1BD0D5F200D5BFA7 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		12F80ECD1BD0D5F200D5BFA7 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		12F80ECE1BD0D5F200D5BFA7 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		12F80ED01BD0D5F200D5BFA7 /* HttpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHeader.h; sourceTree = "<group>"; };
+		12F80ED11BD0D5F200D5BFA7 /* SoapHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapHelp.h; sourceTree = "<group>"; };
+		12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoapHelp.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12F80E791BD0D49300D5BFA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E921BD0D49300D5BFA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E9D1BD0D49300D5BFA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12F80E731BD0D49300D5BFA7 = {
+			isa = PBXGroup;
+			children = (
+				12F80E7E1BD0D49300D5BFA7 /* JDragonSoapDemo */,
+				12F80E981BD0D49300D5BFA7 /* JDragonSoapDemoTests */,
+				12F80EA31BD0D49300D5BFA7 /* JDragonSoapDemoUITests */,
+				12F80E7D1BD0D49300D5BFA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		12F80E7D1BD0D49300D5BFA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12F80E7C1BD0D49300D5BFA7 /* JDragonSoapDemo.app */,
+				12F80E951BD0D49300D5BFA7 /* JDragonSoapDemoTests.xctest */,
+				12F80EA01BD0D49300D5BFA7 /* JDragonSoapDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12F80E7E1BD0D49300D5BFA7 /* JDragonSoapDemo */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EB21BD0D5F200D5BFA7 /* JDragonSoap */,
+				12F80E821BD0D49300D5BFA7 /* AppDelegate.h */,
+				12F80E831BD0D49300D5BFA7 /* AppDelegate.m */,
+				12F80E851BD0D49300D5BFA7 /* ViewController.h */,
+				12F80E861BD0D49300D5BFA7 /* ViewController.m */,
+				12F80E881BD0D49300D5BFA7 /* Main.storyboard */,
+				12F80E8B1BD0D49300D5BFA7 /* Assets.xcassets */,
+				12F80E8D1BD0D49300D5BFA7 /* LaunchScreen.storyboard */,
+				12F80E901BD0D49300D5BFA7 /* Info.plist */,
+				12F80E7F1BD0D49300D5BFA7 /* Supporting Files */,
+			);
+			path = JDragonSoapDemo;
+			sourceTree = "<group>";
+		};
+		12F80E7F1BD0D49300D5BFA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12F80E801BD0D49300D5BFA7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12F80E981BD0D49300D5BFA7 /* JDragonSoapDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				12F80E991BD0D49300D5BFA7 /* JDragonSoapDemoTests.m */,
+				12F80E9B1BD0D49300D5BFA7 /* Info.plist */,
+			);
+			path = JDragonSoapDemoTests;
+			sourceTree = "<group>";
+		};
+		12F80EA31BD0D49300D5BFA7 /* JDragonSoapDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EA41BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m */,
+				12F80EA61BD0D49300D5BFA7 /* Info.plist */,
+			);
+			path = JDragonSoapDemoUITests;
+			sourceTree = "<group>";
+		};
+		12F80EB21BD0D5F200D5BFA7 /* JDragonSoap */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EB31BD0D5F200D5BFA7 /* OpenSorce */,
+				12F80ECF1BD0D5F200D5BFA7 /* SoapHelp */,
+			);
+			name = JDragonSoap;
+			path = ../../JDragonSoap;
+			sourceTree = "<group>";
+		};
+		12F80EB31BD0D5F200D5BFA7 /* OpenSorce */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EB41BD0D5F200D5BFA7 /* AFNetworking */,
+				12F80EC81BD0D5F200D5BFA7 /* Reachability */,
+				12F80ECB1BD0D5F200D5BFA7 /* SVProgressHUD */,
+			);
+			path = OpenSorce;
+			sourceTree = "<group>";
+		};
+		12F80EB41BD0D5F200D5BFA7 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EB51BD0D5F200D5BFA7 /* AFHTTPRequestOperation.h */,
+				12F80EB61BD0D5F200D5BFA7 /* AFHTTPRequestOperation.m */,
+				12F80EB71BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.h */,
+				12F80EB81BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.m */,
+				12F80EB91BD0D5F200D5BFA7 /* AFHTTPSessionManager.h */,
+				12F80EBA1BD0D5F200D5BFA7 /* AFHTTPSessionManager.m */,
+				12F80EBB1BD0D5F200D5BFA7 /* AFNetworking.h */,
+				12F80EBC1BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.h */,
+				12F80EBD1BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.m */,
+				12F80EBE1BD0D5F200D5BFA7 /* AFSecurityPolicy.h */,
+				12F80EBF1BD0D5F200D5BFA7 /* AFSecurityPolicy.m */,
+				12F80EC01BD0D5F200D5BFA7 /* AFURLConnectionOperation.h */,
+				12F80EC11BD0D5F200D5BFA7 /* AFURLConnectionOperation.m */,
+				12F80EC21BD0D5F200D5BFA7 /* AFURLRequestSerialization.h */,
+				12F80EC31BD0D5F200D5BFA7 /* AFURLRequestSerialization.m */,
+				12F80EC41BD0D5F200D5BFA7 /* AFURLResponseSerialization.h */,
+				12F80EC51BD0D5F200D5BFA7 /* AFURLResponseSerialization.m */,
+				12F80EC61BD0D5F200D5BFA7 /* AFURLSessionManager.h */,
+				12F80EC71BD0D5F200D5BFA7 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		12F80EC81BD0D5F200D5BFA7 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				12F80EC91BD0D5F200D5BFA7 /* Reachability.h */,
+				12F80ECA1BD0D5F200D5BFA7 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		12F80ECB1BD0D5F200D5BFA7 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				12F80ECC1BD0D5F200D5BFA7 /* SVProgressHUD.bundle */,
+				12F80ECD1BD0D5F200D5BFA7 /* SVProgressHUD.h */,
+				12F80ECE1BD0D5F200D5BFA7 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		12F80ECF1BD0D5F200D5BFA7 /* SoapHelp */ = {
+			isa = PBXGroup;
+			children = (
+				12F80ED01BD0D5F200D5BFA7 /* HttpHeader.h */,
+				12F80ED11BD0D5F200D5BFA7 /* SoapHelp.h */,
+				12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */,
+			);
+			path = SoapHelp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12F80E7B1BD0D49300D5BFA7 /* JDragonSoapDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F80EA91BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemo" */;
+			buildPhases = (
+				12F80E781BD0D49300D5BFA7 /* Sources */,
+				12F80E791BD0D49300D5BFA7 /* Frameworks */,
+				12F80E7A1BD0D49300D5BFA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JDragonSoapDemo;
+			productName = JDragonSoapDemo;
+			productReference = 12F80E7C1BD0D49300D5BFA7 /* JDragonSoapDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12F80E941BD0D49300D5BFA7 /* JDragonSoapDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F80EAC1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoTests" */;
+			buildPhases = (
+				12F80E911BD0D49300D5BFA7 /* Sources */,
+				12F80E921BD0D49300D5BFA7 /* Frameworks */,
+				12F80E931BD0D49300D5BFA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12F80E971BD0D49300D5BFA7 /* PBXTargetDependency */,
+			);
+			name = JDragonSoapDemoTests;
+			productName = JDragonSoapDemoTests;
+			productReference = 12F80E951BD0D49300D5BFA7 /* JDragonSoapDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12F80E9F1BD0D49300D5BFA7 /* JDragonSoapDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F80EAF1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoUITests" */;
+			buildPhases = (
+				12F80E9C1BD0D49300D5BFA7 /* Sources */,
+				12F80E9D1BD0D49300D5BFA7 /* Frameworks */,
+				12F80E9E1BD0D49300D5BFA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12F80EA21BD0D49300D5BFA7 /* PBXTargetDependency */,
+			);
+			name = JDragonSoapDemoUITests;
+			productName = JDragonSoapDemoUITests;
+			productReference = 12F80EA01BD0D49300D5BFA7 /* JDragonSoapDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12F80E741BD0D49300D5BFA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = JDragon;
+				TargetAttributes = {
+					12F80E7B1BD0D49300D5BFA7 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					12F80E941BD0D49300D5BFA7 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 12F80E7B1BD0D49300D5BFA7;
+					};
+					12F80E9F1BD0D49300D5BFA7 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 12F80E7B1BD0D49300D5BFA7;
+					};
+				};
+			};
+			buildConfigurationList = 12F80E771BD0D49300D5BFA7 /* Build configuration list for PBXProject "JDragonSoapDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12F80E731BD0D49300D5BFA7;
+			productRefGroup = 12F80E7D1BD0D49300D5BFA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12F80E7B1BD0D49300D5BFA7 /* JDragonSoapDemo */,
+				12F80E941BD0D49300D5BFA7 /* JDragonSoapDemoTests */,
+				12F80E9F1BD0D49300D5BFA7 /* JDragonSoapDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12F80E7A1BD0D49300D5BFA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F80E8F1BD0D49300D5BFA7 /* LaunchScreen.storyboard in Resources */,
+				12F80E8C1BD0D49300D5BFA7 /* Assets.xcassets in Resources */,
+				12F80E8A1BD0D49300D5BFA7 /* Main.storyboard in Resources */,
+				12F80EDD1BD0D5F200D5BFA7 /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E931BD0D49300D5BFA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E9E1BD0D49300D5BFA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12F80E781BD0D49300D5BFA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F80EDC1BD0D5F200D5BFA7 /* Reachability.m in Sources */,
+				12F80ED31BD0D5F200D5BFA7 /* AFHTTPRequestOperation.m in Sources */,
+				12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */,
+				12F80EDE1BD0D5F200D5BFA7 /* SVProgressHUD.m in Sources */,
+				12F80ED41BD0D5F200D5BFA7 /* AFHTTPRequestOperationManager.m in Sources */,
+				12F80ED61BD0D5F200D5BFA7 /* AFNetworkReachabilityManager.m in Sources */,
+				12F80EDA1BD0D5F200D5BFA7 /* AFURLResponseSerialization.m in Sources */,
+				12F80ED81BD0D5F200D5BFA7 /* AFURLConnectionOperation.m in Sources */,
+				12F80ED71BD0D5F200D5BFA7 /* AFSecurityPolicy.m in Sources */,
+				12F80EDF1BD0D5F200D5BFA7 /* SoapHelp.m in Sources */,
+				12F80ED51BD0D5F200D5BFA7 /* AFHTTPSessionManager.m in Sources */,
+				12F80ED91BD0D5F200D5BFA7 /* AFURLRequestSerialization.m in Sources */,
+				12F80EDB1BD0D5F200D5BFA7 /* AFURLSessionManager.m in Sources */,
+				12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */,
+				12F80E811BD0D49300D5BFA7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E911BD0D49300D5BFA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F80E9A1BD0D49300D5BFA7 /* JDragonSoapDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12F80E9C1BD0D49300D5BFA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F80EA51BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12F80E971BD0D49300D5BFA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F80E7B1BD0D49300D5BFA7 /* JDragonSoapDemo */;
+			targetProxy = 12F80E961BD0D49300D5BFA7 /* PBXContainerItemProxy */;
+		};
+		12F80EA21BD0D49300D5BFA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F80E7B1BD0D49300D5BFA7 /* JDragonSoapDemo */;
+			targetProxy = 12F80EA11BD0D49300D5BFA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12F80E881BD0D49300D5BFA7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12F80E891BD0D49300D5BFA7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		12F80E8D1BD0D49300D5BFA7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12F80E8E1BD0D49300D5BFA7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12F80EA71BD0D49300D5BFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		12F80EA81BD0D49300D5BFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12F80EAA1BD0D49300D5BFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JDragonSoapDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		12F80EAB1BD0D49300D5BFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JDragonSoapDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		12F80EAD1BD0D49300D5BFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JDragonSoapDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JDragonSoapDemo.app/JDragonSoapDemo";
+			};
+			name = Debug;
+		};
+		12F80EAE1BD0D49300D5BFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JDragonSoapDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JDragonSoapDemo.app/JDragonSoapDemo";
+			};
+			name = Release;
+		};
+		12F80EB01BD0D49300D5BFA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JDragonSoapDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JDragonSoapDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		12F80EB11BD0D49300D5BFA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JDragonSoapDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ledoing.cn.JDragonSoapDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JDragonSoapDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12F80E771BD0D49300D5BFA7 /* Build configuration list for PBXProject "JDragonSoapDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F80EA71BD0D49300D5BFA7 /* Debug */,
+				12F80EA81BD0D49300D5BFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F80EA91BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F80EAA1BD0D49300D5BFA7 /* Debug */,
+				12F80EAB1BD0D49300D5BFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F80EAC1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F80EAD1BD0D49300D5BFA7 /* Debug */,
+				12F80EAE1BD0D49300D5BFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12F80EAF1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F80EB01BD0D49300D5BFA7 /* Debug */,
+				12F80EB11BD0D49300D5BFA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12F80E741BD0D49300D5BFA7 /* Project object */;
+}
