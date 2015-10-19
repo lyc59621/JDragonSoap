@@ -39,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+#  s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
   s.author             = { "姜锦龙" => "lyc59621@icloud.com" }
   # Or just: s.author    = "姜锦龙"
   # s.authors            = { "姜锦龙" => "lyc59621@icloud.comn" }
-   s.social_media_url   = "http//twitter.com/lyc59621"
+  # s.social_media_url   = "https://twitter.com/lyc59621"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -90,8 +90,7 @@ Pod::Spec.new do |s|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-
-  s.source_files  = "JDragonSoap/*"
+  s.source_files  = "JDragonSoap,JDragonSoap/*.{h,m}"
  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -133,6 +132,8 @@ Pod::Spec.new do |s|
    s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency 'AFNetworking', '~> 2.6.1'
+  s.dependency 'Reachability', '~> 3.2'
+  s.dependency 'SVProgressHUD', '~> 1.1.3'
 
 end

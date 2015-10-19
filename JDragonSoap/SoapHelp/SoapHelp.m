@@ -7,7 +7,6 @@
 //
 
 #import "SoapHelp.h"
-#import "Reachability.h"
 
 @interface SoapHelp ()
 

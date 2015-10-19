@@ -7,6 +7,8 @@
 //
 
 #import "HttpHeader.h"
+
+
 //定义返回请求数据的block类型
 typedef void (^ReturnValueBlock) (id returnValue);
 typedef void (^ErrorCodeBlock) (id errorCode);
