@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12401C7A1BD7890D00C71801 /* JDragonSoap.m in Sources */ = {isa = PBXBuildFile; fileRef = 12401C791BD7890D00C71801 /* JDragonSoap.m */; settings = {ASSET_TAGS = (); }; };
 		12F80E811BD0D49300D5BFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E801BD0D49300D5BFA7 /* main.m */; };
 		12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E831BD0D49300D5BFA7 /* AppDelegate.m */; };
 		12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E861BD0D49300D5BFA7 /* ViewController.m */; };
@@ -15,7 +16,6 @@
 		12F80E8F1BD0D49300D5BFA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F80E8D1BD0D49300D5BFA7 /* LaunchScreen.storyboard */; };
 		12F80E9A1BD0D49300D5BFA7 /* JDragonSoapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E991BD0D49300D5BFA7 /* JDragonSoapDemoTests.m */; };
 		12F80EA51BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80EA41BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m */; };
-		12F80EDF1BD0D5F200D5BFA7 /* SoapHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */; settings = {ASSET_TAGS = (); }; };
 		1B6091704617D1EBC526CB3B /* libPods-JDragonSoapDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08631E96360317CE648DEA23 /* libPods-JDragonSoapDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,9 @@
 /* Begin PBXFileReference section */
 		08631E96360317CE648DEA23 /* libPods-JDragonSoapDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JDragonSoapDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B5A40F3E44066FF1BF762D /* Pods-JDragonSoapDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDragonSoapDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JDragonSoapDemo/Pods-JDragonSoapDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		12401C771BD7890D00C71801 /* JDragonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDragonHeader.h; sourceTree = "<group>"; };
+		12401C781BD7890D00C71801 /* JDragonSoap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDragonSoap.h; sourceTree = "<group>"; };
+		12401C791BD7890D00C71801 /* JDragonSoap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDragonSoap.m; sourceTree = "<group>"; };
 		12F80E7C1BD0D49300D5BFA7 /* JDragonSoapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDragonSoapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F80E801BD0D49300D5BFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		12F80E821BD0D49300D5BFA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,9 +58,6 @@
 		12F80EA01BD0D49300D5BFA7 /* JDragonSoapDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDragonSoapDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F80EA41BD0D49300D5BFA7 /* JDragonSoapDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDragonSoapDemoUITests.m; sourceTree = "<group>"; };
 		12F80EA61BD0D49300D5BFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12F80ED01BD0D5F200D5BFA7 /* HttpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHeader.h; sourceTree = "<group>"; };
-		12F80ED11BD0D5F200D5BFA7 /* SoapHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoapHelp.h; sourceTree = "<group>"; };
-		12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoapHelp.m; sourceTree = "<group>"; };
 		2BCA729D4B1C19F404EE1623 /* Pods-JDragonSoapDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDragonSoapDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDragonSoapDemo/Pods-JDragonSoapDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,20 +155,12 @@
 		12F80EB21BD0D5F200D5BFA7 /* JDragonSoap */ = {
 			isa = PBXGroup;
 			children = (
-				12F80ECF1BD0D5F200D5BFA7 /* SoapHelp */,
+				12401C771BD7890D00C71801 /* JDragonHeader.h */,
+				12401C781BD7890D00C71801 /* JDragonSoap.h */,
+				12401C791BD7890D00C71801 /* JDragonSoap.m */,
 			);
 			name = JDragonSoap;
 			path = ../../JDragonSoap;
-			sourceTree = "<group>";
-		};
-		12F80ECF1BD0D5F200D5BFA7 /* SoapHelp */ = {
-			isa = PBXGroup;
-			children = (
-				12F80ED01BD0D5F200D5BFA7 /* HttpHeader.h */,
-				12F80ED11BD0D5F200D5BFA7 /* SoapHelp.h */,
-				12F80ED21BD0D5F200D5BFA7 /* SoapHelp.m */,
-			);
-			path = SoapHelp;
 			sourceTree = "<group>";
 		};
 		47B827D53931EEC4FDD03575 /* Pods */ = {
@@ -369,8 +361,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12401C7A1BD7890D00C71801 /* JDragonSoap.m in Sources */,
 				12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */,
-				12F80EDF1BD0D5F200D5BFA7 /* SoapHelp.m in Sources */,
 				12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */,
 				12F80E811BD0D49300D5BFA7 /* main.m in Sources */,
 			);

@@ -14,6 +14,6 @@
 #import "AFNetworking.h"
 #import "Reachability.h"
 #import "SVProgressHUD.h"
-#import "SoapHelp.h"
+#import "JDragonSoap.h"
 
 #endif

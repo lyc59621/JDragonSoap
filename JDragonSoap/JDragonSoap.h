@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 long. All rights reserved.
 //
 
-#import "HttpHeader.h"
+#import "JDragonHeader.h"
 
 
 //定义返回请求数据的block类型
@@ -34,7 +34,7 @@ typedef void (^resultBlock)(id resultValue);
 
 @end
 
-@interface SoapHelp : NSObject
+@interface JDragonSoap : NSObject
 @property(nonatomic,assign)id<soapHelpDelegate>delegate;
 @property(copy,nonatomic) NetWorkBlock  netBlock;
 
@@ -47,8 +47,9 @@ typedef void (^resultBlock)(id resultValue);
 @property(nonatomic,strong) UIImage  *upImage;  // image
 @property(nonatomic,strong) NSString  *fileName;  //iamge 名字
 @property(nonatomic,strong) NSString  *upImgParameterName;  //参数名字
+;  //参数名字
 
-+(SoapHelp*)shareInstance;
++(JDragonSoap*)shareInstance;
 
 
 

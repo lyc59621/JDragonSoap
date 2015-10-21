@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "HttpHeader.h"
+#import "JDragonHeader.h"
 @interface ViewController ()<soapHelpDelegate>
-@property(nonatomic,strong)SoapHelp  *soap;
+@property(nonatomic,strong)JDragonSoap  *soap;
 
 @end
 
@@ -17,7 +17,7 @@
 @synthesize soap;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    soap = [SoapHelp shareInstance];
+    soap = [JDragonSoap shareInstance];
     soap.delegate =self;
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -43,7 +43,7 @@
     soap.parameter = @{@"groupcode":@"365911/365949",@"ua":@"Iphone_Sst",@"version":@"4.2000"};
     
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeBlack ];
-    [SoapHelp soapGetRequestWith:^(id returnValue) {
+    [JDragonSoap soapGetRequestWith:^(id returnValue) {
         
         [SVProgressHUD dismiss];
         NSLog(@"get=======%@",returnValue);
@@ -62,7 +62,7 @@
                        };
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeGradient ];
     
-    [SoapHelp soapPostRequestWith:^(id resultValue) {
+    [JDragonSoap soapPostRequestWith:^(id resultValue) {
         [SVProgressHUD  dismiss];
         NSLog(@"post=======%@",resultValue);
     }];
@@ -76,7 +76,7 @@
 - (IBAction)netTypeButtonAction:(UIButton *)sender {
     
     
-    [SoapHelp   netWorkStateReachability:^(int netConnetState) {
+    [JDragonSoap   netWorkStateReachability:^(int netConnetState) {
         
         NSLog(@"网络状态为%d",netConnetState);
         

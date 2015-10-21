@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 long. All rights reserved.
 //
 
-#import "SoapHelp.h"
+#import "JDragonSoap.h"
 
-@interface SoapHelp ()
+@interface JDragonSoap ()
 
 @property (strong, nonatomic) ReturnValueBlock returnBlock;
 @property (strong, nonatomic) ErrorCodeBlock errorBlock;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation SoapHelp
+@implementation JDragonSoap
 
 //-(id)init
 //{
@@ -38,15 +38,15 @@
 //    return self;
 //}
 
-+(SoapHelp*)shareInstance
++(JDragonSoap*)shareInstance
 {
-    static SoapHelp *_sharedInstance = nil;
+    static JDragonSoap *_sharedInstance = nil;
     
     static dispatch_once_t oncePredicate;
     
     dispatch_once(&oncePredicate, ^{
         
-        _sharedInstance = [[SoapHelp alloc] init];
+        _sharedInstance = [[JDragonSoap alloc] init];
         [_sharedInstance checkReachability];
     });
     
@@ -70,23 +70,23 @@
 }
 +(void)soapPostRequestWith:(resultBlock)result{
     
-    [SoapHelp NetRequestPOSTWithRequestURL: [SoapHelp shareInstance].urlHost WithParameter:[SoapHelp shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
+    [JDragonSoap NetRequestPOSTWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
         result(returnValue);
     } WithErrorCodeBlock:^(id errorCode) {
         
-        [SoapHelp shareInstance].errorBlock(errorCode);
+        [JDragonSoap shareInstance].errorBlock(errorCode);
     } WithFailureBlock:^{
         
-       [SoapHelp shareInstance].failureBlock();
+       [JDragonSoap shareInstance].failureBlock();
     }];
 
-    [[SoapHelp shareInstance] soapHelpRequestResultInfo];
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
     
 }
 -(void)soapHelpRequestResultInfo
 {
     
-    __weak    SoapHelp  *soap = self;
+    __weak    JDragonSoap  *soap = self;
     
    [self setBlockWithReturnBlock:^(id returnValue) {
        
@@ -116,19 +116,19 @@
 }
 +(void)soapGetRequestWith:(ReturnValueBlock)result
 {
-    [SoapHelp NetRequestGETWithRequestURL: [SoapHelp shareInstance].urlHost WithParameter:[SoapHelp shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
+    [JDragonSoap NetRequestGETWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
 //        _returnBlock(returnValue);
         result(returnValue);
     } WithErrorCodeBlock:^(id errorCode) {
         
-        [SoapHelp shareInstance].errorBlock(errorCode);
+        [JDragonSoap shareInstance].errorBlock(errorCode);
     } WithFailureBlock:^{
         
-        [SoapHelp shareInstance].failureBlock();
+        [JDragonSoap shareInstance].failureBlock();
 //        LLog(@"网络异常");
     }];
-    [SoapHelp shareInstance].returnBlock = result;
-    [[SoapHelp shareInstance] soapHelpRequestResultInfo];
+    [JDragonSoap shareInstance].returnBlock = result;
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
    
 }
 
@@ -137,8 +137,8 @@
 //    [SoapHelp netWorkReachabilityWithURLString:@"wap.baidu.com" withReturnNetBlock:^(int netConnetState) {
 //                  [SoapHelp shareInstance].netBlock(netConnetState);
 //            }];
-   [SoapHelp shareInstance].netBlock = net;
-   [[SoapHelp shareInstance] updateInterfaceWithReachability:[SoapHelp shareInstance].reachability];
+   [JDragonSoap shareInstance].netBlock = net;
+   [[JDragonSoap shareInstance] updateInterfaceWithReachability:[JDragonSoap shareInstance].reachability];
 }
 
 
@@ -184,10 +184,10 @@
     {
         //3G
         NSLog(@"Reachable 3G");
-        net=  [SoapHelp checkNetWorklocalType];
+        net=  [JDragonSoap checkNetWorklocalType];
     }
     if (_netBlock) {
-        [SoapHelp shareInstance].netBlock(net);
+        [JDragonSoap shareInstance].netBlock(net);
     }
 }
 #pragma mark-----------------------------------
@@ -209,7 +209,7 @@
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 [operationQueue setSuspended:NO];
                 
-                netState = [SoapHelp checkNetWorklocalType];
+                netState = [JDragonSoap checkNetWorklocalType];
                 
                 break;
             case AFNetworkReachabilityStatusNotReachable:
@@ -339,8 +339,8 @@
 {
 
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager  alloc]init];
-    AFHTTPRequestOperation *op = [manager POST:[SoapHelp shareInstance].urlHost parameters:[SoapHelp shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *imageData = UIImageJPEGRepresentation([SoapHelp shareInstance].upImage, 0.3);
+    AFHTTPRequestOperation *op = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
         //上传图片，以文件流的格式
         //        NSData *data=[NSData dataWithContentsOfFile:userIconFilePath];
 //        [formData appendPartWithFileData:imageData name:@"userpic" fileName:fileName
@@ -348,7 +348,7 @@
         
 //        [formData appendPartWithFileURL:[NSURL fileURLWithPath:userIconFilePath] name:@"userpic" fileName:fileName mimeType:@"image/jpeg/file" error:nil];
 
-        [formData appendPartWithFileData:imageData name:[SoapHelp shareInstance].upImgParameterName fileName:[SoapHelp shareInstance].fileName mimeType:@"image/jpeg/file"];
+        [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
@@ -357,7 +357,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        NSLog(@"错误%@",error);
-        [SoapHelp shareInstance].errorBlock(error);
+        [JDragonSoap shareInstance].errorBlock(error);
         
     }];
     
@@ -370,7 +370,7 @@
         //        NSLog(@"进度%f",progress);
         progressBlock(progress);
     }];
-    [[SoapHelp shareInstance] soapHelpRequestResultInfo];
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
 
 }
 
