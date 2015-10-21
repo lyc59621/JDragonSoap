@@ -43,6 +43,14 @@
     soap.parameter = @{@"groupcode":@"365911/365949",@"ua":@"Iphone_Sst",@"version":@"4.2000"};
     
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeBlack ];
+    
+    /**
+     *  Get 请求
+     *
+     *  @param returnValue block
+     *
+     *  @return 书籍请求结果
+     */
     [JDragonSoap soapGetRequestWith:^(id returnValue) {
         
         [SVProgressHUD dismiss];
@@ -62,6 +70,13 @@
                        };
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeGradient ];
     
+    /**
+     *  Post 请求
+     *
+     *  @param returnValue block
+     *
+     *  @return 书籍请求结果
+     */
     [JDragonSoap soapPostRequestWith:^(id resultValue) {
         [SVProgressHUD  dismiss];
         NSLog(@"post=======%@",resultValue);
