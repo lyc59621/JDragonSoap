@@ -1,6 +1,10 @@
 # JDragonSoap
 一个基于AFNetworking的网络请求
 
+更新日志：基于AFNetworking 3.0  
+
+NSURLConnection 替换为NSURLSession 
+
 ##setup
 
 ### user pod

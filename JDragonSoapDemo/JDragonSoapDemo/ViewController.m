@@ -57,10 +57,6 @@
         NSLog(@"get=======%@",returnValue);
     }];
     
-
-    
-    
-    
 }
 - (IBAction)PostDidClickButtonAction:(UIButton *)sender {
     

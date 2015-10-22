@@ -199,8 +199,11 @@
     
     NSURL *baseURL = [NSURL URLWithString:strUrl];
     
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     
+    AFHTTPSessionManager  *manager = [[AFHTTPSessionManager alloc]initWithBaseURL:baseURL];
+
+//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+  
     NSOperationQueue *operationQueue = manager.operationQueue;
     
     [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -288,21 +291,39 @@
                   WithErrorCodeBlock: (ErrorCodeBlock) errorBlock
                     WithFailureBlock: (FailureBlock) failureBlock
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+
+//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     
-    AFHTTPRequestOperation *op = [manager GET:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        //        LLog(@"%@", dic);
+//    AFHTTPRequestOperation *op = [manager GET:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        //        LLog(@"%@", dic);
+//        
+//        block(dic);
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        errorBlock(error);
+//    }];
+//    
+//    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    [op start];
+    
+    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+
+    
+    NSURLSessionTask  *task = [manager GET:requestURLString parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  responseObject) {
+              NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:(NSData*)responseObject options:NSJSONReadingAllowFragments error:nil];
+        
         
         block(dic);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            errorBlock(error);
+
     }];
     
-    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+   manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
     
-    [op start];
+    
 }
 #pragma --mark POST请求方式
 + (void) NetRequestPOSTWithRequestURL: (NSString *) requestURLString
@@ -311,11 +332,35 @@
                    WithErrorCodeBlock: (ErrorCodeBlock) errorBlock
                      WithFailureBlock: (FailureBlock) failureBlock
 {
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+//    
+//    manager.requestSerializer.timeoutInterval = 120;
+//    
+//    AFHTTPRequestOperation *op = [manager POST:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        //        LLog(@"%@", dic);
+//        
+//        block(dic);
+//        /*
+//         在这做判断如果有dic里有errorCode
+//         调用errorBlock(dic)
+//         没有errorCode则调用block(dic
+//         */
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        errorBlock(error);
+//    }];
+//    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    
+//    
+//    [op start];
+    
+    
+    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
     
     manager.requestSerializer.timeoutInterval = 120;
-    
-    AFHTTPRequestOperation *op = [manager POST:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+    NSURLSessionTask  *task = [manager POST:requestURLString parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         //        LLog(@"%@", dic);
         
@@ -325,19 +370,21 @@
          调用errorBlock(dic)
          没有errorCode则调用block(dic
          */
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+       
         errorBlock(error);
+
     }];
-    op.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
+
     
-    
-    
-    [op start];
 }
 
 +(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock;
 {
 
+    /*
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager  alloc]init];
     AFHTTPRequestOperation *op = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
@@ -371,7 +418,57 @@
         progressBlock(progress);
     }];
     [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
+    
+    
+    */
+    
+    
+    
+//    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+//    
+// NSURLSessionDataTask  *task = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+//    [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        resultBlock(dic);
+//        //        NSLog(@"成功%@",dic);
+//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//        
+//        [JDragonSoap shareInstance].errorBlock(error);
+// 
+//    }];
+    
 
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURL *URL = [NSURL URLWithString:[JDragonSoap shareInstance].urlHost];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromData:imageData progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+        }
+        
+    }];
+    
+
+    NSProgress  *gress = [manager  uploadProgressForTask:uploadTask ];
+    
+    NSLog(@"上传进度＝＝%@",gress);
+    
+
+    
 }
 
 @end
