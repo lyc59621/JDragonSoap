@@ -1,5 +1,5 @@
 // AFURLResponseSerialization.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -115,7 +115,9 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     NSError *validationError = nil;
 
     if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
-        if (self.acceptableContentTypes && ![self.acceptableContentTypes containsObject:[response MIMEType]]) {
+        if (self.acceptableContentTypes && ![self.acceptableContentTypes containsObject:[response MIMEType]] &&
+            !([response MIMEType] == nil && [data length] == 0)) {
+
             if ([data length] > 0 && [response URL]) {
                 NSMutableDictionary *mutableUserInfo = [@{
                                                           NSLocalizedDescriptionKey: [NSString stringWithFormat:NSLocalizedStringFromTable(@"Request failed: unacceptable content-type: %@", @"AFNetworking", nil), [response MIMEType]],
@@ -240,40 +242,15 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         }
     }
 
-    // Workaround for behavior of Rails to return a single space for `head :ok` (a workaround for a bug in Safari), which is not interpreted as valid input by NSJSONSerialization.
-    // See https://github.com/rails/rails/issues/1742
-    NSStringEncoding stringEncoding = self.stringEncoding;
-    if (response.textEncodingName) {
-        CFStringEncoding encoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)response.textEncodingName);
-        if (encoding != kCFStringEncodingInvalidId) {
-            stringEncoding = CFStringConvertEncodingToNSStringEncoding(encoding);
-        }
-    }
-
     id responseObject = nil;
     NSError *serializationError = nil;
-    @autoreleasepool {
-        NSString *responseString = [[NSString alloc] initWithData:data encoding:stringEncoding];
-        if (responseString && ![responseString isEqualToString:@" "]) {
-            // Workaround for a bug in NSJSONSerialization when Unicode character escape codes are used instead of the actual character
-            // See http://stackoverflow.com/a/12843465/157142
-            data = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-
-            if (data) {
-                if ([data length] > 0) {
-                    responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
-                } else {
-                    return nil;
-                }
-            } else {
-                NSDictionary *userInfo = @{
-                                           NSLocalizedDescriptionKey: NSLocalizedStringFromTable(@"Data failed decoding as a UTF-8 string", @"AFNetworking", nil),
-                                           NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:NSLocalizedStringFromTable(@"Could not decode string: %@", @"AFNetworking", nil), responseString]
-                                           };
-
-                serializationError = [NSError errorWithDomain:AFURLResponseSerializationErrorDomain code:NSURLErrorCannotDecodeContentData userInfo:userInfo];
-            }
-        }
+    // Workaround for behavior of Rails to return a single space for `head :ok` (a workaround for a bug in Safari), which is not interpreted as valid input by NSJSONSerialization.
+    // See https://github.com/rails/rails/issues/1742
+    BOOL isSpace = [data isEqualToData:[NSData dataWithBytes:" " length:1]];
+    if (data.length > 0 && !isSpace) {
+        responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
+    } else {
+        return nil;
     }
 
     if (self.removesKeysWithNullValues && responseObject) {
@@ -503,7 +480,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         return nil;
     }
 
-    self.format = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(format))] unsignedIntegerValue];
+    self.format = (NSPropertyListFormat)[[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(format))] unsignedIntegerValue];
     self.readOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(readOptions))] unsignedIntegerValue];
 
     return self;
@@ -530,7 +507,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 #pragma mark -
 
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
@@ -670,10 +647,10 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
     self.acceptableContentTypes = [[NSSet alloc] initWithObjects:@"image/tiff", @"image/jpeg", @"image/gif", @"image/png", @"image/ico", @"image/x-icon", @"image/bmp", @"image/x-bmp", @"image/x-xbitmap", @"image/x-win-bitmap", nil];
 
-#if TARGET_OS_IOS
+#if TARGET_OS_IOS || TARGET_OS_TV
     self.imageScale = [[UIScreen mainScreen] scale];
     self.automaticallyInflatesResponseImage = YES;
-#elif  TARGET_OS_WATCH
+#elif TARGET_OS_WATCH
     self.imageScale = [[WKInterfaceDevice currentDevice] screenScale];
     self.automaticallyInflatesResponseImage = YES;
 #endif
@@ -693,13 +670,13 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
         }
     }
 
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
     if (self.automaticallyInflatesResponseImage) {
         return AFInflatedImageFromResponseWithDataAtScale((NSHTTPURLResponse *)response, data, self.imageScale);
     } else {
         return AFImageWithDataAtScale(data, self.imageScale);
     }
-#elif !TARGET_OS_WATCH
+#else
     // Ensure that the image is set to it's correct pixel width and height
     NSBitmapImageRep *bitimage = [[NSBitmapImageRep alloc] initWithData:data];
     NSImage *image = [[NSImage alloc] initWithSize:NSMakeSize([bitimage pixelsWide], [bitimage pixelsHigh])];
@@ -719,7 +696,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
         return nil;
     }
 
-#if TARGET_OS_IOS  || TARGET_OS_TV
+#if TARGET_OS_IOS  || TARGET_OS_TV || TARGET_OS_WATCH
     NSNumber *imageScale = [decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(imageScale))];
 #if CGFLOAT_IS_DOUBLE
     self.imageScale = [imageScale doubleValue];
@@ -736,7 +713,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 - (void)encodeWithCoder:(NSCoder *)coder {
     [super encodeWithCoder:coder];
 
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
     [coder encodeObject:@(self.imageScale) forKey:NSStringFromSelector(@selector(imageScale))];
     [coder encodeBool:self.automaticallyInflatesResponseImage forKey:NSStringFromSelector(@selector(automaticallyInflatesResponseImage))];
 #endif
@@ -747,7 +724,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 - (instancetype)copyWithZone:(NSZone *)zone {
     AFImageResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
 
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
     serializer.imageScale = self.imageScale;
     serializer.automaticallyInflatesResponseImage = self.automaticallyInflatesResponseImage;
 #endif

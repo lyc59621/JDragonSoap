@@ -1,5 +1,5 @@
 // UIWebView+AFNetworking.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+// Copyright (c) 2011–2016 Alamofire Software Foundation ( http://alamofire.org/ )
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -125,10 +125,11 @@
     self.af_URLSessionTask = nil;
 
     __weak __typeof(self)weakSelf = self;
-    NSURLSessionDataTask *task;
-    task = [self.sessionManager
+    NSURLSessionDataTask *dataTask;
+    dataTask = [self.sessionManager
             GET:request.URL.absoluteString
             parameters:nil
+            progress:nil
             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
                 __strong __typeof(weakSelf) strongSelf = weakSelf;
                 if (success) {
@@ -145,8 +146,10 @@
                     failure(error);
                 }
             }];
-    self.af_URLSessionTask = task;
-    *progress = [self.sessionManager progressForDataTask:task];
+    self.af_URLSessionTask = dataTask;
+    if (progress != nil) {
+        *progress = [self.sessionManager downloadProgressForTask:dataTask];
+    }
     [self.af_URLSessionTask resume];
 
     if ([self.delegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
