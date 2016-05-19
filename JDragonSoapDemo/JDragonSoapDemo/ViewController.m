@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "JDragonHeader.h"
+#import <SVProgressHUD.h>
 @interface ViewController ()<soapHelpDelegate>
 @property(nonatomic,strong)JDragonSoap  *soap;
 
@@ -49,7 +50,7 @@
      *
      *  @param returnValue block
      *
-     *  @return 书籍请求结果
+     *  @return 请求结果
      */
     [JDragonSoap soapGetRequestWith:^(id returnValue) {
         
@@ -71,7 +72,7 @@
      *
      *  @param returnValue block
      *
-     *  @return 书籍请求结果
+     *  @return 请求结果
      */
     [JDragonSoap soapPostRequestWith:^(id resultValue) {
         [SVProgressHUD  dismiss];
