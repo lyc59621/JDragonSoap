@@ -7,7 +7,9 @@
 //
 
 #import "JDragonSoap.h"
-#import "JDragonHeader.h"
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+#import <Reachability.h>
 
 @interface JDragonSoap ()
 
