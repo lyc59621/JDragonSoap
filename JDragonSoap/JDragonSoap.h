@@ -6,7 +6,9 @@
 //  Copyright (c) 2015年 long. All rights reserved.
 //
 
-#import "JDragonHeader.h"
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 //定义返回请求数据的block类型
@@ -15,6 +17,9 @@ typedef void (^ErrorCodeBlock) (id errorCode);
 typedef void (^FailureBlock)();
 typedef void (^NetWorkBlock)(int netConnetState);
 typedef void (^resultBlock)(id resultValue);
+
+
+
 @protocol soapHelpDelegate <NSObject>
 
 @optional

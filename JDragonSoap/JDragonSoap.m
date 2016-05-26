@@ -7,6 +7,7 @@
 //
 
 #import "JDragonSoap.h"
+#import "JDragonHeader.h"
 
 @interface JDragonSoap ()
 
