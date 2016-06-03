@@ -202,10 +202,7 @@
     
     NSURL *baseURL = [NSURL URLWithString:strUrl];
     
-    
     AFHTTPSessionManager  *manager = [[AFHTTPSessionManager alloc]initWithBaseURL:baseURL];
-
-//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
   
     NSOperationQueue *operationQueue = manager.operationQueue;
     
@@ -294,22 +291,6 @@
                   WithErrorCodeBlock: (ErrorCodeBlock) errorBlock
                     WithFailureBlock: (FailureBlock) failureBlock
 {
-
-//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-    
-//    AFHTTPRequestOperation *op = [manager GET:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        //        LLog(@"%@", dic);
-//        
-//        block(dic);
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        errorBlock(error);
-//    }];
-//    
-//    op.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    [op start];
     
     AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
 
@@ -335,30 +316,7 @@
                    WithErrorCodeBlock: (ErrorCodeBlock) errorBlock
                      WithFailureBlock: (FailureBlock) failureBlock
 {
-//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-//    
-//    manager.requestSerializer.timeoutInterval = 120;
-//    
-//    AFHTTPRequestOperation *op = [manager POST:requestURLString parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        //        LLog(@"%@", dic);
-//        
-//        block(dic);
-//        /*
-//         在这做判断如果有dic里有errorCode
-//         调用errorBlock(dic)
-//         没有errorCode则调用block(dic
-//         */
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        errorBlock(error);
-//    }];
-//    op.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    
-//    
-//    
-//    [op start];
-    
-    
+
     AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
     
     manager.requestSerializer.timeoutInterval = 120;
@@ -386,89 +344,49 @@
 
 +(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock;
 {
-
-    /*
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager  alloc]init];
-    AFHTTPRequestOperation *op = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
-        //上传图片，以文件流的格式
-        //        NSData *data=[NSData dataWithContentsOfFile:userIconFilePath];
-//        [formData appendPartWithFileData:imageData name:@"userpic" fileName:fileName
-//        [formData appendPartWithFormData:imageData name:@"userpic"];
+    
+   AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+    
+    NSURLSessionDataTask  *task = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:userIconFilePath] name:@"userpic" fileName:fileName mimeType:@"image/jpeg/file" error:nil];
-
-        [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+    [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"上传进度＝＝%@",uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         resultBlock(dic);
-        //        NSLog(@"成功%@",dic);
+      //        NSLog(@"成功%@",dic);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"错误%@",error);
-        [JDragonSoap shareInstance].errorBlock(error);
-        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         [JDragonSoap shareInstance].errorBlock(error);
     }];
     
-    op.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    [op start];
-    
-    [op setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        CGFloat progress = ((float)totalBytesWritten) / totalBytesExpectedToWrite;
-        //        NSLog(@"进度%f",progress);
-        progressBlock(progress);
-    }];
-    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
     
     
-    */
-    
-    
-    
-//    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
 //    
-// NSURLSessionDataTask  *task = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
-//    [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
+//    NSURL *URL = [NSURL URLWithString:[JDragonSoap shareInstance].urlHost];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+//    
+//    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+//    
+//    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromData:imageData progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//
 //        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        if (error) {
+//            NSLog(@"Error: %@", error);
+//        } else {
+//            NSLog(@"%@ %@", response, responseObject);
+//        }
 //        
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        resultBlock(dic);
-//        //        NSLog(@"成功%@",dic);
-//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-//        
-//        [JDragonSoap shareInstance].errorBlock(error);
-// 
 //    }];
-    
-
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSURL *URL = [NSURL URLWithString:[JDragonSoap shareInstance].urlHost];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    
-    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
-    
-    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromData:imageData progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        
-        
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-        }
-        
-    }];
-    
-
-    NSProgress  *gress = [manager  uploadProgressForTask:uploadTask ];
-    
-    NSLog(@"上传进度＝＝%@",gress);
+//    NSProgress  *gress = [manager  uploadProgressForTask:uploadTask ];
+//    
+//    NSLog(@"上传进度＝＝%@",gress);
     
 
     
