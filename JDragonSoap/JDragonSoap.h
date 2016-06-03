@@ -73,7 +73,7 @@ typedef void (^resultBlock)(id resultValue);
  */
 +(void)soapPostRequestWith:(resultBlock)result;
 
-
++(void)soapPostRequestWith:(resultBlock)result errorBlock:(ErrorCodeBlock)error;
 
 /**
  *  GET请求
@@ -82,6 +82,7 @@ typedef void (^resultBlock)(id resultValue);
  */
 +(void)soapGetRequestWith:(ReturnValueBlock)result;
 
++(void)soapGetRequestWith:(ReturnValueBlock)result errorBlock:(ErrorCodeBlock)error;
 
 /**
  *  上传Image  必须传image fileName  upImgParameterName

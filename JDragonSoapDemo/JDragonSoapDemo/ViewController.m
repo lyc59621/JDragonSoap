@@ -74,17 +74,16 @@
      *
      *  @return 请求结果
      */
-    [JDragonSoap soapPostRequestWith:^(id resultValue) {
+
+     [JDragonSoap soapPostRequestWith:^(id resultValue) {
         [SVProgressHUD  dismiss];
-        NSLog(@"post=======%@",resultValue);
-    }];
- 
+             NSLog(@"post=======%@",resultValue);
+     } errorBlock:^(id errorCode) {
+         
+     }];
     
     
 }
-
-
-
 - (IBAction)netTypeButtonAction:(UIButton *)sender {
     
     

@@ -82,40 +82,56 @@
        [JDragonSoap shareInstance].failureBlock();
     }];
 
-    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo:nil];
     
 }
--(void)soapHelpRequestResultInfo
+
++(void)soapPostRequestWith:(resultBlock)result errorBlock:(ErrorCodeBlock)error
+{
+    [JDragonSoap NetRequestPOSTWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
+        result(returnValue);
+    } WithErrorCodeBlock:^(id errorCode) {
+        
+        [JDragonSoap shareInstance].errorBlock(errorCode);
+    } WithFailureBlock:^{
+        
+        [JDragonSoap shareInstance].failureBlock();
+    }];
+    
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo:error];
+    
+}
+-(void)soapHelpRequestResultInfo:(ErrorCodeBlock)error
 {
     
     __weak    JDragonSoap  *soap = self;
     
-   [self setBlockWithReturnBlock:^(id returnValue) {
-       
-//       if ([soap.delegate respondsToSelector:@selector(soapHelpObjectResultInfo:)]) {
-//           
-//           [soap.delegate  soapHelpObjectResultInfo:returnValue];
-//       }
-//       NSLog(@"rereer%@",returnValue);
-       soap.returnBlock(returnValue);
-       
-   } WithErrorBlock:^(id errorCode) {
-       
-       if ([soap.delegate respondsToSelector:@selector(soapHelpObjectErrorInfo:)]) {
-           
-           [soap.delegate  soapHelpObjectErrorInfo:errorCode];
-       }
-       
-   } WithFailureBlock:^{
-       
-       if ([soap.delegate respondsToSelector:@selector(soapHelpObjectFailureInfo)]) {
-           
-           [soap.delegate  soapHelpObjectFailureInfo];
-       }
-       
-   }];
+    [self setBlockWithReturnBlock:^(id returnValue) {
+        
+        soap.returnBlock(returnValue);
+        
+    } WithErrorBlock:^(id errorCode) {
+        
+        if(error)
+        {
+            error(errorCode);
+        }
+        if ([soap.delegate respondsToSelector:@selector(soapHelpObjectErrorInfo:)]) {
+            
+            [soap.delegate  soapHelpObjectErrorInfo:errorCode];
+        }
+        
+    } WithFailureBlock:^{
+        
+        if ([soap.delegate respondsToSelector:@selector(soapHelpObjectFailureInfo)]) {
+            
+            [soap.delegate  soapHelpObjectFailureInfo];
+        }
+        
+    }];
     
 }
+
 +(void)soapGetRequestWith:(ReturnValueBlock)result
 {
     [JDragonSoap NetRequestGETWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
@@ -130,8 +146,25 @@
 //        LLog(@"网络异常");
     }];
     [JDragonSoap shareInstance].returnBlock = result;
-    [[JDragonSoap shareInstance] soapHelpRequestResultInfo];
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo:nil];
    
+}
++(void)soapGetRequestWith:(ReturnValueBlock)result errorBlock:(ErrorCodeBlock)error
+{
+    [JDragonSoap NetRequestGETWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
+        //        _returnBlock(returnValue);
+        result(returnValue);
+    } WithErrorCodeBlock:^(id errorCode) {
+        
+        [JDragonSoap shareInstance].errorBlock(errorCode);
+    } WithFailureBlock:^{
+        
+        [JDragonSoap shareInstance].failureBlock();
+        //        LLog(@"网络异常");
+    }];
+    [JDragonSoap shareInstance].returnBlock = result;
+    [[JDragonSoap shareInstance] soapHelpRequestResultInfo:error];
+    
 }
 
 +(void)netWorkStateReachability:(NetWorkBlock)net
