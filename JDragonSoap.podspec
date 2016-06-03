@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JDragonSoap"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "一个极其简单的网络请求"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = {:git => "https://github.com/lyc59621/JDragonSoap.git", :tag => "0.0.4" }
+  s.source       = {:git => "https://github.com/lyc59621/JDragonSoap.git", :tag => "0.0.5" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
