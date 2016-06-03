@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-//#import "JDragonHeader.h"
 #import "JDragonSoap.h"
 #import "SVProgressHUD.h"
 @interface ViewController ()<soapHelpDelegate>

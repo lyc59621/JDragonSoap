@@ -8,7 +8,6 @@
 
 #import "JDragonSoap.h"
 #import "AFNetworking.h"
-#import "SVProgressHUD.h"
 #import "Reachability.h"
 
 @interface JDragonSoap ()
