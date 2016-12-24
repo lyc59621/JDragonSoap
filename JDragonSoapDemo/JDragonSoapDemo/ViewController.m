@@ -21,6 +21,15 @@
     soap = [JDragonSoap shareInstance];
     soap.delegate =self;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    /**
+     *  检测网络状态
+     */
+    [JDragonSoap netWorkStateReachability:^(int netConnetState) {
+       
+        NSLog(@"网络状态==%d",netConnetState);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,6 +67,15 @@
         NSLog(@"get=======%@",returnValue);
     }];
     
+    [JDragonSoap soapGetRequestWith:^(id returnValue) {
+        
+        [SVProgressHUD dismiss];
+        NSLog(@"get=======%@",returnValue);
+    } errorBlock:^(id errorCode) {
+        
+        NSLog(@"error=======%@",errorCode);
+    }];
+    
 }
 - (IBAction)PostDidClickButtonAction:(UIButton *)sender {
     
@@ -77,12 +95,10 @@
 
      [JDragonSoap soapPostRequestWith:^(id resultValue) {
         [SVProgressHUD  dismiss];
-             NSLog(@"post=======%@",resultValue);
+        NSLog(@"post=======%@",resultValue);
      } errorBlock:^(id errorCode) {
-         
+         NSLog(@"error=======%@",errorCode);
      }];
-    
-    
 }
 - (IBAction)netTypeButtonAction:(UIButton *)sender {
     
