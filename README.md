@@ -15,7 +15,7 @@ NSURLConnection 替换为NSURLSession
 
 ```
 
-pod 'JDragonSoap','~> 0.0.7'
+pod 'JDragonSoap','~> 0.0.8'
 
 
 ```
