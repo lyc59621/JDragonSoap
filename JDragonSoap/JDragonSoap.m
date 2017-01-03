@@ -85,14 +85,13 @@
     [[JDragonSoap shareInstance] soapHelpRequestResultInfo:nil];
     
 }
-
 +(void)soapPostRequestWith:(resultBlock)result errorBlock:(ErrorCodeBlock)error
 {
     [JDragonSoap NetRequestPOSTWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
         result(returnValue);
     } WithErrorCodeBlock:^(id errorCode) {
         
-        [JDragonSoap shareInstance].errorBlock(errorCode);
+        error(errorCode);
     } WithFailureBlock:^{
         
         [JDragonSoap shareInstance].failureBlock();
@@ -127,23 +126,16 @@
             
             [soap.delegate  soapHelpObjectFailureInfo];
         }
-        
     }];
-    
 }
-
 +(void)soapGetRequestWith:(ReturnValueBlock)result
 {
     [JDragonSoap NetRequestGETWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
-//        _returnBlock(returnValue);
         result(returnValue);
     } WithErrorCodeBlock:^(id errorCode) {
-        
         [JDragonSoap shareInstance].errorBlock(errorCode);
     } WithFailureBlock:^{
-        
         [JDragonSoap shareInstance].failureBlock();
-//        LLog(@"网络异常");
     }];
     [JDragonSoap shareInstance].returnBlock = result;
     [[JDragonSoap shareInstance] soapHelpRequestResultInfo:nil];
@@ -152,15 +144,11 @@
 +(void)soapGetRequestWith:(ReturnValueBlock)result errorBlock:(ErrorCodeBlock)error
 {
     [JDragonSoap NetRequestGETWithRequestURL: [JDragonSoap shareInstance].urlHost WithParameter:[JDragonSoap shareInstance].parameter WithReturnValeuBlock:^(id returnValue) {
-        //        _returnBlock(returnValue);
         result(returnValue);
     } WithErrorCodeBlock:^(id errorCode) {
-        
-        [JDragonSoap shareInstance].errorBlock(errorCode);
+         error(errorCode);
     } WithFailureBlock:^{
-        
         [JDragonSoap shareInstance].failureBlock();
-        //        LLog(@"网络异常");
     }];
     [JDragonSoap shareInstance].returnBlock = result;
     [[JDragonSoap shareInstance] soapHelpRequestResultInfo:error];
@@ -185,9 +173,7 @@
     self.reachability = [Reachability reachabilityForInternetConnection];
     [self.reachability startNotifier];
     [self updateInterfaceWithReachability:self.reachability];
-    
- }
-
+}
 /*!
  * Called by Reachability whenever status changes.
  */
@@ -197,7 +183,6 @@
     NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
     [self updateInterfaceWithReachability:curReach];
 }
-
 - (void)updateInterfaceWithReachability:(Reachability *)reachability
 {
     NetworkStatus status = [reachability currentReachabilityStatus];
@@ -231,21 +216,17 @@
 {
 
     __block int  netState;
-    
     NSURL *baseURL = [NSURL URLWithString:strUrl];
     
     AFHTTPSessionManager  *manager = [[AFHTTPSessionManager alloc]initWithBaseURL:baseURL];
-  
+    [JDragonSoap soapNetWorkHttpsWithManager:manager];
     NSOperationQueue *operationQueue = manager.operationQueue;
-    
     [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 [operationQueue setSuspended:NO];
-                
                 netState = [JDragonSoap checkNetWorklocalType];
-                
                 break;
             case AFNetworkReachabilityStatusNotReachable:
                 netState = 0;
@@ -325,21 +306,17 @@
 {
     
     AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
-
+    [JDragonSoap soapNetWorkHttpsWithManager:manager];
+    manager.requestSerializer.timeoutInterval = 120;
     
     NSURLSessionTask  *task = [manager GET:requestURLString parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  responseObject) {
               NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:(NSData*)responseObject options:NSJSONReadingAllowFragments error:nil];
-        
-        
         block(dic);
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
             errorBlock(error);
 
     }];
-    
    manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
-    
-    
 }
 #pragma --mark POST请求方式
 + (void) NetRequestPOSTWithRequestURL: (NSString *) requestURLString
@@ -350,39 +327,36 @@
 {
 
     AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
-    
+    [JDragonSoap soapNetWorkHttpsWithManager:manager];
     manager.requestSerializer.timeoutInterval = 120;
 
     NSURLSessionTask  *task = [manager POST:requestURLString parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        //        LLog(@"%@", dic);
-        
         block(dic);
         /*
          在这做判断如果有dic里有errorCode
          调用errorBlock(dic)
          没有errorCode则调用block(dic
          */
-        
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-       
         errorBlock(error);
-
     }];
     manager.responseSerializer  = [AFHTTPResponseSerializer serializer];
-
-    
 }
-
 +(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock;
 {
+    [JDragonSoap soapHelpUpdateLoadImagewithResult:resultBlock withUploadProgress:progressBlock errorBlock:nil];
+}
++(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock errorBlock:(ErrorCodeBlock)errorBlock
+{
     
-   AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+    [JDragonSoap soapNetWorkHttpsWithManager:manager];
     
     NSURLSessionDataTask  *task = [manager POST:[JDragonSoap shareInstance].urlHost parameters:[JDragonSoap shareInstance].parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
-    [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
+        NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+        [formData appendPartWithFileData:imageData name:[JDragonSoap shareInstance].upImgParameterName fileName:[JDragonSoap shareInstance].fileName mimeType:@"image/jpeg/file"];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"上传进度＝＝%@",uploadProgress);
@@ -390,38 +364,47 @@
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         resultBlock(dic);
-      //        NSLog(@"成功%@",dic);
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         [JDragonSoap shareInstance].errorBlock(error);
+        if (errorBlock) {
+            errorBlock(error);
+        }else
+        {
+            [JDragonSoap shareInstance].errorBlock(error);
+        }
     }];
     
     
     
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-//    
-//    NSURL *URL = [NSURL URLWithString:[JDragonSoap shareInstance].urlHost];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-//    
-//    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
-//    
-//    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromData:imageData progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//
-//        
-//        if (error) {
-//            NSLog(@"Error: %@", error);
-//        } else {
-//            NSLog(@"%@ %@", response, responseObject);
-//        }
-//        
-//    }];
-//    NSProgress  *gress = [manager  uploadProgressForTask:uploadTask ];
-//    
-//    NSLog(@"上传进度＝＝%@",gress);
+    //    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    //
+    //    NSURL *URL = [NSURL URLWithString:[JDragonSoap shareInstance].urlHost];
+    //    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    //
+    //    NSData *imageData = UIImageJPEGRepresentation([JDragonSoap shareInstance].upImage, 0.3);
+    //
+    //    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromData:imageData progress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    //
+    //
+    //        if (error) {
+    //            NSLog(@"Error: %@", error);
+    //        } else {
+    //            NSLog(@"%@ %@", response, responseObject);
+    //        }
+    //
+    //    }];
+    //    NSProgress  *gress = [manager  uploadProgressForTask:uploadTask ];
+    //    
+    //    NSLog(@"上传进度＝＝%@",gress);
     
-
     
+}
++(void)soapNetWorkHttpsWithManager:(AFHTTPSessionManager*)manager
+{
+    // 2.设置非校验证书模式 https
+    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    manager.securityPolicy.allowInvalidCertificates = YES;
+    [manager.securityPolicy setValidatesDomainName:NO];
 }
 
 @end

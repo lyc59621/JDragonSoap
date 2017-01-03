@@ -42,6 +42,8 @@ typedef void (^resultBlock)(id resultValue);
 @interface JDragonSoap : NSObject
 @property(nonatomic,assign)id<soapHelpDelegate>delegate;
 @property(copy,nonatomic) NetWorkBlock  netBlock;
+//@property(nonatomic,assign) BOOL isHttps;   //设置https
+
 
 #pragma mark---------------请求------------------
 @property(nonatomic,strong) NSString *urlHost;
@@ -91,6 +93,8 @@ typedef void (^resultBlock)(id resultValue);
  *  @param progressBlock  上传进度
  */
 +(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock;
+
++(void)soapHelpUpdateLoadImagewithResult:(resultBlock)resultBlock withUploadProgress:(void (^)(float progress))progressBlock errorBlock:(ErrorCodeBlock)errorBlock;
 
 @end
 

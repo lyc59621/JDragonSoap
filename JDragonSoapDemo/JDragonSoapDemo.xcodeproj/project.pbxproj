@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		017E457B6451E22482D40BC3 /* libPods-JDragonSoapDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AC7466ABD16766494DDAA0 /* libPods-JDragonSoapDemo.a */; };
-		12401C7A1BD7890D00C71801 /* JDragonSoap.m in Sources */ = {isa = PBXBuildFile; fileRef = 12401C791BD7890D00C71801 /* JDragonSoap.m */; };
 		12F80E811BD0D49300D5BFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E801BD0D49300D5BFA7 /* main.m */; };
 		12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E831BD0D49300D5BFA7 /* AppDelegate.m */; };
 		12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F80E861BD0D49300D5BFA7 /* ViewController.m */; };
@@ -39,8 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12401C781BD7890D00C71801 /* JDragonSoap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDragonSoap.h; sourceTree = "<group>"; };
-		12401C791BD7890D00C71801 /* JDragonSoap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDragonSoap.m; sourceTree = "<group>"; };
 		12F80E7C1BD0D49300D5BFA7 /* JDragonSoapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDragonSoapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F80E801BD0D49300D5BFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		12F80E821BD0D49300D5BFA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,7 +118,6 @@
 		12F80E7E1BD0D49300D5BFA7 /* JDragonSoapDemo */ = {
 			isa = PBXGroup;
 			children = (
-				12F80EB21BD0D5F200D5BFA7 /* JDragonSoap */,
 				12F80E821BD0D49300D5BFA7 /* AppDelegate.h */,
 				12F80E831BD0D49300D5BFA7 /* AppDelegate.m */,
 				12F80E851BD0D49300D5BFA7 /* ViewController.h */,
@@ -161,16 +157,6 @@
 			path = JDragonSoapDemoUITests;
 			sourceTree = "<group>";
 		};
-		12F80EB21BD0D5F200D5BFA7 /* JDragonSoap */ = {
-			isa = PBXGroup;
-			children = (
-				12401C781BD7890D00C71801 /* JDragonSoap.h */,
-				12401C791BD7890D00C71801 /* JDragonSoap.m */,
-			);
-			name = JDragonSoap;
-			path = ../../JDragonSoap;
-			sourceTree = "<group>";
-		};
 		4D7C21097E8D9BF643C2182B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,12 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F80EA91BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemo" */;
 			buildPhases = (
-				5FCA4ADACFACF1896B6F8E9E /* 📦 Check Pods Manifest.lock */,
+				5FCA4ADACFACF1896B6F8E9E /* [CP] Check Pods Manifest.lock */,
 				12F80E781BD0D49300D5BFA7 /* Sources */,
 				12F80E791BD0D49300D5BFA7 /* Frameworks */,
 				12F80E7A1BD0D49300D5BFA7 /* Resources */,
-				D398DB3F6A78B21EFC7EF75B /* 📦 Embed Pods Frameworks */,
-				7CA444EA906AE234D3BE49F7 /* 📦 Copy Pods Resources */,
+				D398DB3F6A78B21EFC7EF75B /* [CP] Embed Pods Frameworks */,
+				7CA444EA906AE234D3BE49F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,12 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F80EAC1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoTests" */;
 			buildPhases = (
-				5D6ECB212C5AFA42FEA12694 /* 📦 Check Pods Manifest.lock */,
+				5D6ECB212C5AFA42FEA12694 /* [CP] Check Pods Manifest.lock */,
 				12F80E911BD0D49300D5BFA7 /* Sources */,
 				12F80E921BD0D49300D5BFA7 /* Frameworks */,
 				12F80E931BD0D49300D5BFA7 /* Resources */,
-				D42B36F355CD34B4EAA332F8 /* 📦 Embed Pods Frameworks */,
-				A5252CECD98B61B99108B4EC /* 📦 Copy Pods Resources */,
+				D42B36F355CD34B4EAA332F8 /* [CP] Embed Pods Frameworks */,
+				A5252CECD98B61B99108B4EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,11 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F80EAF1BD0D49300D5BFA7 /* Build configuration list for PBXNativeTarget "JDragonSoapDemoUITests" */;
 			buildPhases = (
-				0D08B23C88A3DEAEEFF9FF66 /* 📦 Check Pods Manifest.lock */,
+				0D08B23C88A3DEAEEFF9FF66 /* [CP] Check Pods Manifest.lock */,
 				12F80E9C1BD0D49300D5BFA7 /* Sources */,
 				12F80E9D1BD0D49300D5BFA7 /* Frameworks */,
 				12F80E9E1BD0D49300D5BFA7 /* Resources */,
-				751843535D9BC3332F0D29BB /* 📦 Copy Pods Resources */,
+				751843535D9BC3332F0D29BB /* [CP] Copy Pods Resources */,
+				AFDEB40A3FC71A313985312D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,59 +315,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D08B23C88A3DEAEEFF9FF66 /* 📦 Check Pods Manifest.lock */ = {
+		0D08B23C88A3DEAEEFF9FF66 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5D6ECB212C5AFA42FEA12694 /* 📦 Check Pods Manifest.lock */ = {
+		5D6ECB212C5AFA42FEA12694 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5FCA4ADACFACF1896B6F8E9E /* 📦 Check Pods Manifest.lock */ = {
+		5FCA4ADACFACF1896B6F8E9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		751843535D9BC3332F0D29BB /* 📦 Copy Pods Resources */ = {
+		751843535D9BC3332F0D29BB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,14 +375,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDragonSoapDemoUITests/Pods-JDragonSoapDemoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CA444EA906AE234D3BE49F7 /* 📦 Copy Pods Resources */ = {
+		7CA444EA906AE234D3BE49F7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,14 +390,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDragonSoapDemo/Pods-JDragonSoapDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5252CECD98B61B99108B4EC /* 📦 Copy Pods Resources */ = {
+		A5252CECD98B61B99108B4EC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,14 +405,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDragonSoapDemoTests/Pods-JDragonSoapDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D398DB3F6A78B21EFC7EF75B /* 📦 Embed Pods Frameworks */ = {
+		AFDEB40A3FC71A313985312D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDragonSoapDemoUITests/Pods-JDragonSoapDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D398DB3F6A78B21EFC7EF75B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,14 +435,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JDragonSoapDemo/Pods-JDragonSoapDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D42B36F355CD34B4EAA332F8 /* 📦 Embed Pods Frameworks */ = {
+		D42B36F355CD34B4EAA332F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +457,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12401C7A1BD7890D00C71801 /* JDragonSoap.m in Sources */,
 				12F80E871BD0D49300D5BFA7 /* ViewController.m in Sources */,
 				12F80E841BD0D49300D5BFA7 /* AppDelegate.m in Sources */,
 				12F80E811BD0D49300D5BFA7 /* main.m in Sources */,

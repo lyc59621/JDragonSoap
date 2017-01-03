@@ -5,7 +5,7 @@
 
 
 
-# 更新日志：基于AFNetworking 3.1  
+# 更新日志：基于AFNetworking 3.1  支持非校验Https请求
 
 NSURLConnection 替换为NSURLSession 
 
@@ -15,7 +15,7 @@ NSURLConnection 替换为NSURLSession
 
 ```
 
-pod 'JDragonSoap','~> 0.0.8'
+pod 'JDragonSoap','~> 0.0.9'
 
 
 ```
