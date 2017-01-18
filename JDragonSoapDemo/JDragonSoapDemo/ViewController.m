@@ -43,14 +43,14 @@
     /**
      *  不建议使用这种方式
      */
-    //    soap.urlHost = @"http://218.200.160.29/rdp2/test/v5.5/firstlist.do?groupcode=365911/365949&&ua=Iphone_Sst&&version=4.2000";
+    //    soap.urlHost = @"http://232323233/tv5tlist.do?groupcode=3651/3&&ua=Iphonet&&versio=4.0";
     
 #pragma mark-------可以使用下面方式传入参数-------------------
     /**
      *  使用规范模式
      */
-    soap.urlHost =@"http://218.200.160.29/rdp2/test/v5.5/firstlist.do?";
-    soap.parameter = @{@"groupcode":@"365911/365949",@"ua":@"Iphone_Sst",@"version":@"4.2000"};
+    soap.urlHost =@"http://wewewe";//请自行替换
+    soap.parameter = @{@"grouode":@"36",@"ua":@"_Sst",@"versn":@"4.00"};
     
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeBlack ];
     
@@ -80,8 +80,8 @@
 - (IBAction)PostDidClickButtonAction:(UIButton *)sender {
     
     
-    soap.urlHost = @"https://account.cimyun.com/users/login";
-    soap.parameter = @{@"phone":@"15104442573",@"password":@"123456"
+    soap.urlHost = @"https://232323"; //请自行替换
+    soap.parameter = @{@"phone":@"123232",@"password":@"123456"
                        };
     [ SVProgressHUD   showWithStatus:@"请求中" maskType:SVProgressHUDMaskTypeGradient ];
     
