@@ -4,6 +4,8 @@
 ![badge-pod] ![badge-languages] ![badge-platforms] ![badge-mit]
 
 
+# 更新日志：此为简单网络请求，现已停止更新，请移步新库 https://github.com/lyc59621/JDNetWork
+
 
 # 更新日志：基于AFNetworking 3.1  支持非校验Https请求
 
